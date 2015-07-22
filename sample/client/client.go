@@ -11,7 +11,7 @@ import (
 func main() {
 	reg := registry.NewRedisRegistry("localhost:6379")
 	//	reg,_ := registry.NewZKRegistry([]string{"192.168.148.128:2181"},10*time.Second)
-	tclient := client.NetThriftClient(reg, "calculator", tutorial.NewCalculatorClientFactory)
+	tclient := client.NewThriftClient(reg, "calculator", tutorial.NewCalculatorClientFactory)
 	for i := 0; i < 10; i++ {
 		var a int32 = 5
 		var b int32 = 6

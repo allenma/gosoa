@@ -21,7 +21,7 @@ type ThriftClient struct {
 	providersCache   []registry.ProviderInfo // cache providers in local memory
 }
 
-func NetThriftClient(reg registry.Registry, serviceName string, fun interface{}) *ThriftClient {
+func NewThriftClient(reg registry.Registry, serviceName string, fun interface{}) *ThriftClient {
 	tc := &ThriftClient{
 		Reg:              reg,
 		ServiceName:      serviceName,
