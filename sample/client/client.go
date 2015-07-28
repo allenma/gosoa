@@ -16,7 +16,7 @@ func main() {
 		var a int32 = 5
 		var b int32 = 6
 		fmt.Println("time ", i, ":")
-		result, err := tclient.Execute("Add", a, b)
+		result, err := tclient.ExecuteWithRetry("Add", 5, a, b)
 
 		if err == nil {
 			fmt.Println("  add result=", result.(int32))
@@ -24,7 +24,7 @@ func main() {
 			fmt.Println("  add error:", err.Error())
 		}
 
-		_, err = tclient.Execute("Ping")
+		_, err = tclient.ExecuteWithRetry("Ping", 5)
 		if err == nil {
 			fmt.Println("  ping success")
 		} else {
